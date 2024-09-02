@@ -7,6 +7,25 @@
   margin: 0 auto;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.spaced {
+  justify-content: space-between;
+}
+
+.gap {
+  gap: 16px;
+}
+
+.text {
+  stroke: var(--text-color);
+  fill: var(--text-color);
+}
+
 .hero {
   flex: 1;
   width: 100%;

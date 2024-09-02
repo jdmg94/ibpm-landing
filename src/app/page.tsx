@@ -1,18 +1,42 @@
 "use client";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 import Logo from "@/components/Logo";
 import Slides from "@/components/Slides";
 import ContentCard from "@/components/ContentCard";
 import WavyBackground from "@/components/WavyBackground";
+
 import styles from "./page.module.css";
+import PrivacyIcon from "./privacy/privacy.svg";
+import SupportIcon from "./support/support.svg";
+
+const ICON_SIZE = 32;
 
 export default function Home() {
   return (
     <WavyBackground>
       <section className={styles.hero}>
         <ContentCard>
-          <Logo />
+          <div className={clsx(styles.row, styles.spaced)}>
+            <Logo />
+            <span className={clsx(styles.row, styles.gap, styles.pointer)}>
+              <Link href="/privacy">
+                <PrivacyIcon
+                  height={ICON_SIZE}
+                  width={ICON_SIZE}
+                  className={styles.text}
+                />
+              </Link>
+              <Link href="/support">
+                <SupportIcon
+                  height={ICON_SIZE}
+                  width={ICON_SIZE}
+                  className={styles.text}
+                />
+              </Link>
+            </span>
+          </div>
           <span style={{ marginTop: 16 }}>
             <h2 style={{ marginBottom: 8 }}>
               Tired of tapping your phone to find the beat?
@@ -29,12 +53,12 @@ export default function Home() {
                 }
               </li>
               <li>
-                <strong>Get your BPM:</strong> The app will display the
-                tempo of the music, allowing you to sync with the beat with
-                precision.
+                <strong>Get your BPM:</strong> The app will display the tempo of
+                the music, allowing you to sync with the beat with precision.
               </li>
               <li>
-                <strong>Effortless workflow:</strong> iBPM keeps a sample library and provides quick access to your history.
+                <strong>Effortless workflow:</strong> iBPM keeps a sample
+                library and provides quick access to your history.
               </li>
               <li>
                 <strong>Offline first:</strong>
